@@ -147,13 +147,25 @@ export default function ProductDetailsPage() {
                         />
                     </div>
 
-                    <button
-                        className={classNames('button', 'primaryButton', styles.addToCartButton)}
-                        onClick={() => handleAddToCart().catch(handleError)}
-                        disabled={outOfStock || isAddingToCart}
-                    >
-                        {outOfStock ? 'Out of stock' : 'Add to Cart'}
-                    </button>
+                    <div className={styles.div1}>
+                        <button
+                            className={classNames(
+                                'button',
+                                'primaryButton',
+                                styles.addToCartButton,
+                            )}
+                            onClick={() => handleAddToCart().catch(handleError)}
+                            disabled={outOfStock || isAddingToCart}
+                        >
+                            {outOfStock ? 'Out of stock' : 'Add to Cart'}
+                        </button>
+                        <button
+                            onClick={() => handleAddToCart().catch(handleError)}
+                            disabled={outOfStock || isAddingToCart}
+                        >
+                            {outOfStock ? 'Out of stock' : 'Save for later'}
+                        </button>
+                    </div>
 
                     {product.additionalInfoSections &&
                         product.additionalInfoSections.length > 0 && (
